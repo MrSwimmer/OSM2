@@ -13,7 +13,7 @@
     <uses-permission android:name="android.permission.CAMERA"/>
     <uses-permission android:name="android.permission.WAKE_LOCK"/>
     <application
-
+        android:screenOrientation="portrait"
         android:allowBackup="true"
         android:backupAgent="TheBackupAgent"
         android:icon="@drawable/osmr"
@@ -33,6 +33,7 @@
         </service>
 
         <activity
+            android:screenOrientation="portrait"
             android:name=".SplashScreenActivity"
             android:label="Ортостатический мониторинг">
             <intent-filter>
@@ -40,7 +41,9 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".puls.Pulsometro"
+        <activity
+            android:screenOrientation="portrait"
+            android:name=".puls.Pulsometro"
             >
         </activity>
         <activity
@@ -49,48 +52,53 @@
             android:parentActivityName=".MainActivity"
             />
         <activity
+            android:screenOrientation="portrait"
             android:name=".RegistrationActivity"
             android:parentActivityName=".LogInActivity"
             />
         <activity
+            android:screenOrientation="portrait"
             android:name=".MainActivity"
             android:label="Ортостатический мониторинг"
             />
         <activity android:name=".LogInActivity"
+                  android:screenOrientation="portrait"
                   android:parentActivityName=".NoteSettings"
             />
         <activity android:name=".SucEnter"
                   android:label=""
+                  android:screenOrientation="portrait"
                   android:parentActivityName=".MainActivity"
             />
         <activity
-
+            android:screenOrientation="portrait"
             android:name=".NotePagerActivity"
+            android:windowSoftInputMode="stateHidden"
             android:label="Запись"
             android:parentActivityName=".NoteListActivity">
         </activity>
         <activity
+            android:screenOrientation="portrait"
             android:name=".NoteListActivity"
             android:label="Записи"
             android:parentActivityName=".MainActivity">
         </activity>
         <activity
+            android:screenOrientation="portrait"
             android:name=".NoteSettings"
             android:label="Настройки"
             android:parentActivityName=".MainActivity">
         </activity>
 
         <activity
+            android:screenOrientation="portrait"
             android:name=".NoteInfo"
             android:label="Инструкция"
             android:parentActivityName=".MainActivity">
         </activity>
         <activity android:name=".database.ExportImportDB"
+                  android:screenOrientation="portrait"
             />
-        <activity
-            android:name=".NoteVersion"
-            android:label="О версии"
-            android:parentActivityName=".NoteSettings"></activity>
 
     </application>
 

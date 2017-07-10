@@ -1,5 +1,7 @@
 package com.bignerdranch.android.osm;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -12,6 +14,7 @@ import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 import com.bignerdranch.android.osm.database.ExportImportDB;
+import com.bignerdranch.android.osm.puls.Pulsometro;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.MobileAds;
@@ -34,7 +37,6 @@ public class NoteSettings extends AppCompatActivity {
     private String str = null;
     private TextView mVer;
     private AdView mAdView;
-    private Switch mRadioPuls;
 
     @Override
     public void onStart() {
@@ -104,19 +106,42 @@ public class NoteSettings extends AppCompatActivity {
         mButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                AlertDialog.Builder builder = new AlertDialog.Builder(NoteSettings.this);
+                builder.setTitle("Удаление всех записей")
+                        .setMessage("Вы действительно хотите удалить все записи?")
+                        .setPositiveButton("Да", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        NoteLab.get(NoteSettings.this).delAllNote();
+                        Toast.makeText(NoteSettings.this,
+                                "Все записи удалены",
+                                Toast.LENGTH_SHORT).show();
+                        dialog.cancel();
+                    }
+                }).setNegativeButton("Нет", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.cancel();
+                    }
+                });
+                AlertDialog dialog = builder.create();
+                dialog.show();
 
-                NoteLab.get(NoteSettings.this).delAllNote();
-                Toast.makeText(NoteSettings.this,
-                        "Все записи удалены",
-                        Toast.LENGTH_SHORT).show();
             }
         });
         mVer = (TextView) findViewById(R.id.buttonVer);
         mVer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(NoteSettings.this, NoteVersion.class);
-                startActivity(i);
+                AlertDialog.Builder builder = new AlertDialog.Builder(NoteSettings.this);
+                builder.setTitle("О версии").setMessage("Что нового в этой версии?\nПофикшены баги (но не все), добавлена функция измерения пульса с помощью камеры и вспышки.\nЧто ожидать в следующих версиях?\nВнедрение искусственной нейронной сети для более качественной оценки состояния организма").setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.cancel();
+                    }
+                });
+                AlertDialog dialog = builder.create();
+                dialog.show();
             }
         });
 

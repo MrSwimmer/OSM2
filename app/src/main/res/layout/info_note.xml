@@ -12,16 +12,20 @@
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
                 android:fillViewport="true"
-        >
+                android:layout_alignParentTop="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true">
 
         <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
                       android:layout_width="match_parent"
                       android:layout_height="match_parent"
+                      android:layout_marginLeft="7dp"
+                      android:layout_marginRight="5dp"
                       android:orientation="vertical"
                       android:paddingLeft="10dp"
+
                       android:paddingRight="10dp"
                       android:paddingStart="10dp"
-
                       android:paddingTop="10dp">
 
             <TextView
@@ -36,8 +40,10 @@
                 style="@style/TextAppearance.AppCompat"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/WhatText"
+                android:paddingBottom="15dp"
 
+                android:paddingTop="6dp"
+                android:text="@string/WhatText"
                 android:textSize="17dp"/>
 
             <TextView
@@ -51,6 +57,8 @@
                 style="@style/TextAppearance.AppCompat"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:paddingBottom="10dp"
+                android:paddingTop="6dp"
                 android:text="@string/pr_text"
                 android:textSize="17dp"/>
 
@@ -66,6 +74,7 @@
                 style="@style/TextAppearance.AppCompat"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:paddingTop="6dp"
                 android:text="@string/WhatWorkText"
                 android:textSize="17dp"/>
 
@@ -73,6 +82,7 @@
                 style="@style/TextAppearance.AppCompat"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:paddingBottom="10dp"
                 android:text="@string/WhatWorkText2"
                 android:textSize="17dp"/>
 
@@ -87,6 +97,7 @@
                 style="@style/TextAppearance.AppCompat"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:paddingTop="6dp"
                 android:text="@string/WhatUsing"
                 android:textSize="17dp"/>
 

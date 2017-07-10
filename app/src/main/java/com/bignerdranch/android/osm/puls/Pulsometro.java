@@ -216,7 +216,7 @@ public class Pulsometro extends Activity {
         Intent intent = getIntent();
         AlertDialog.Builder builder = new AlertDialog.Builder(Pulsometro.this);
         id = intent.getStringExtra("id");
-        builder.setTitle("Инструкция").setMessage("Приложите палец к камере и вспыке. Когда в левом верхнем углу появится пульс, нажмите кнопку справа, чтобы сохранить его. Затем встаньте и так же сохраните пульс стоя.").setPositiveButton("OK", new DialogInterface.OnClickListener() {
+        builder.setTitle("Инструкция").setMessage("Приложите палец к камере и вспышке. Когда в левом верхнем углу появится пульс, нажмите кнопку справа, чтобы сохранить его. Затем встаньте и так же сохраните пульс стоя.").setPositiveButton("OK", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 dialog.cancel();

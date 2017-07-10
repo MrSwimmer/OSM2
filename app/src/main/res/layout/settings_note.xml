@@ -25,7 +25,7 @@
             android:background="@drawable/bottom_line"
             android:padding="15dp"
             android:text="Удаление всех записей"
-            android:textSize="22sp"/>
+            android:textSize="18sp"/>
 
         <TextView
             android:id="@+id/buttonMark"
@@ -39,7 +39,7 @@
             android:paddingBottom="15sp"
             android:paddingTop="15dp"
             android:text="Оценить нас в Google Play"
-            android:textSize="22sp"/>
+            android:textSize="18sp"/>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -54,15 +54,15 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Версия приложения"
-                android:textSize="22sp"
+                android:textSize="18sp"
                 />
 
             <TextView
                 android:id="@+id/textView3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="v2.0"
-                android:textSize="22sp"/>
+                android:text="v2.1.pro"
+                android:textSize="17sp"/>
 
         </LinearLayout>
 
@@ -78,7 +78,7 @@
             android:paddingTop="15dp"
 
             android:text="О версии"
-            android:textSize="22sp"/>
+            android:textSize="18sp"/>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -93,24 +93,15 @@
                 android:layout_height="wrap_content"
                 android:text="Вход / Регистрация"
                 android:textAppearance="@style/TextAppearance.AppCompat"
-                android:textSize="22sp"/>
+                android:textSize="18sp"/>
 
             <TextView
                 android:id="@+id/email"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="22sp"/>
+                android:textSize="18sp"/>
 
         </LinearLayout>
-
-        <Switch
-            android:id="@+id/switch_pulse"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/bottom_line"
-            android:padding="15dp"
-            android:text="Измерение пульса камерой"
-            android:textSize="18sp"/>
 
     </LinearLayout>
 
