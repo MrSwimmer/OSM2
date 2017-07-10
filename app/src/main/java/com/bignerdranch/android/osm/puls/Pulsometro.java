@@ -2,9 +2,11 @@ package com.bignerdranch.android.osm.puls;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.hardware.Camera;
 import android.hardware.Camera.PreviewCallback;
@@ -16,6 +18,7 @@ import android.view.SurfaceView;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bignerdranch.android.osm.Note;
 import com.bignerdranch.android.osm.NoteLab;
@@ -211,12 +214,20 @@ public class Pulsometro extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
         Intent intent = getIntent();
+        AlertDialog.Builder builder = new AlertDialog.Builder(Pulsometro.this);
         id = intent.getStringExtra("id");
+        builder.setTitle("Инструкция").setMessage("Приложите палец к камере и вспыке. Когда в левом верхнем углу появится пульс, нажмите кнопку справа, чтобы сохранить его. Затем встаньте и так же сохраните пульс стоя.").setPositiveButton("OK", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.cancel();
+            }
+        });
+        AlertDialog dialog = builder.create();
+        dialog.show();
         MyVars.viewFinder = (SurfaceView) findViewById(R.id.preview);
         MyVars.viewFinderHolder = MyVars.viewFinder.getHolder();
         MyVars.viewFinderHolder.addCallback(surfaceCallback);
         MyVars.viewFinderHolder.setType(SurfaceHolder.SURFACE_TYPE_PUSH_BUFFERS);
-
         MyVars.image = findViewById(R.id.image);
         MyVars.text = (TextView) findViewById(R.id.text);
         MyVars.save = (Button) findViewById(R.id.add_puls);
@@ -226,6 +237,7 @@ public class Pulsometro extends Activity {
                 if (!pressed) {
                     p1 = beatsAvg;
                     pressed = !pressed;
+                    Toast.makeText(getApplicationContext(),"Пульс сидя сохранен!\nВстаньте и повторно проведите измерение", Toast.LENGTH_SHORT).show();
                 } else {
                     p2 = beatsAvg;
                     Log.i("LOL", String.valueOf(p1) + String.valueOf(p2));

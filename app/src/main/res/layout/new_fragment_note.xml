@@ -90,17 +90,16 @@
             android:id="@+id/chss2"
             android:layout_width="match_parent"
 
-            android:layout_height="102dp"
+            android:layout_height="118dp"
             android:layout_gravity="center"
             android:layout_marginTop="10dp"
-            android:layout_weight="0.10"
             android:orientation="horizontal"
             android:weightSum="1">
 
             <LinearLayout
                 android:id="@+id/chss1"
                 android:layout_width="wrap_content"
-                android:layout_height="102dp"
+                android:layout_height="match_parent"
 
                 android:layout_weight="0.56"
                 android:orientation="vertical">
@@ -149,7 +148,7 @@
 
             <LinearLayout
                 android:layout_width="wrap_content"
-                android:layout_height="102dp"
+                android:layout_height="match_parent"
                 android:layout_weight="0.41"
                 android:orientation="vertical">
 
@@ -206,167 +205,282 @@
             android:layout_marginBottom="20dp"
             android:layout_marginLeft="6dp"
             android:layout_marginRight="6dp"
-            android:layout_marginTop="30dp"
-            android:orientation="horizontal">
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal"
+            android:padding="8dp">
+
+            <Button
+                android:id="@+id/Scan"
+                style="@style/Widget.AppCompat.Button.Small"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/new_oval"
+                android:text="измерить пульс камерой"
+                android:textColor="@color/colorPrimaryDark"/>
 
             <Button
                 android:id="@+id/button"
                 android:layout_width="120dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
+                android:layout_marginLeft="20dp"
                 android:layout_weight="0.55"
                 android:background="@drawable/ovalshape"
                 android:text="Посчитать балл"
                 android:textColor="@android:color/white"
                 android:textSize="14sp"/>
 
-            <Button
-                android:id="@+id/Scan"
-                style="@style/Widget.AppCompat.Button.Small"
-                android:layout_width="167dp"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
-                android:text="измерить пульс камерой"/>
         </LinearLayout>
 
-        <TextView
-            android:id="@+id/restext"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingBottom="10dp"
-            android:paddingTop="10dp"
-            android:text="Результаты"
-            android:textAlignment="center"
-            android:textAppearance="@style/TextAppearance.AppCompat"
-            android:textSize="18sp"
-            android:visibility="gone"/>
-
-        <ImageView
-            android:id="@+id/resview"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginBottom="10dp"
-            android:layout_marginTop="10dp"
-            android:visibility="gone"/>
-
         <LinearLayout
-            android:id="@+id/infozone"
+            android:id="@+id/main_bottom"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="3dp"
-            android:background="@drawable/start_shape"
+            android:layout_height="match_parent"
+            android:layout_weight="0.55"
             android:orientation="vertical"
             android:visibility="gone">
 
             <TextView
-                android:id="@+id/textZone"
+                android:id="@+id/restext"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="6dp"
-                android:layout_marginRight="6dp"
-                android:layout_marginTop="7dp"
+                android:paddingBottom="10dp"
                 android:paddingTop="10dp"
-                android:text="TextView"
+                android:text="Результаты"
+                android:textAlignment="center"
                 android:textAppearance="@style/TextAppearance.AppCompat"
-                android:textColor="@android:color/white"
                 android:textSize="18sp"
                 android:visibility="visible"/>
+
+            <ImageView
+                android:id="@+id/resview"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="10dp"
+                android:visibility="visible"/>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:visibility="visible">
+
+                <LinearLayout
+                    android:layout_width="90dp"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bottom_line"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:id="@+id/imageView6"
+                        android:layout_width="15dp"
+                        android:layout_height="15dp"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="10dp"
+                        app:srcCompat="@drawable/oval_green"/>
+
+                    <TextView
+                        android:id="@+id/textView25"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingBottom="10dp"
+                        android:paddingTop="10dp"
+                        android:text="14.5-7.5б\nI зона"
+                        android:textAlignment="center"
+                        android:textColor="@android:color/black"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="90dp"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bottom_line"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:id="@+id/imageView8"
+                        android:layout_width="15dp"
+                        android:layout_height="15dp"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="10dp"
+                        app:srcCompat="@drawable/oval_blue"/>
+
+                    <TextView
+                        android:id="@+id/textView27"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingBottom="10dp"
+                        android:paddingTop="10dp"
+                        android:text="7.5-4.5б\nII зона"
+                        android:textAlignment="center"
+                        android:textColor="@android:color/black"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="90dp"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bottom_line"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:id="@+id/imageView9"
+                        android:layout_width="15dp"
+                        android:layout_height="15dp"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="10dp"
+                        app:srcCompat="@drawable/oval_yellow"/>
+
+                    <TextView
+                        android:id="@+id/textView28"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingBottom="10dp"
+                        android:paddingTop="10dp"
+                        android:text="4.5-2.5б\nIII зона"
+                        android:textAlignment="center"
+                        android:textColor="@android:color/black"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="90dp"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bottom_line"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:id="@+id/imageView10"
+                        android:layout_width="15dp"
+                        android:layout_height="15dp"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="10dp"
+                        app:srcCompat="@drawable/oval_red"/>
+
+                    <TextView
+                        android:id="@+id/textView29"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingBottom="10dp"
+                        android:paddingTop="10dp"
+                        android:text="менее 2.5б\nIV зона"
+                        android:textAlignment="center"
+                        android:textColor="@android:color/black"/>
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/infozone"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:visibility="visible">
+
+                <TextView
+                    android:id="@+id/textZone"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="13dp"
+                    android:text="TextView"
+                    android:textAppearance="@style/TextAppearance.AppCompat"
+                    android:textColor="@android:color/black"
+                    android:textSize="18sp"
+                    android:visibility="visible"/>
+
+            </LinearLayout>
 
             <TextView
                 android:id="@+id/textLetZone"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp"
-                android:layout_marginLeft="6dp"
-                android:layout_marginRight="6dp"
-                android:layout_marginTop="7dp"
+                android:background="@drawable/bottom_line"
+                android:padding="13dp"
                 android:text="TextView"
                 android:textAppearance="@style/TextAppearance.AppCompat"
-                android:textColor="@android:color/white"
+                android:textColor="@android:color/black"
                 android:textSize="16sp"
                 android:visibility="visible"/>
+
+            <TextView
+                android:id="@+id/textView16"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="10dp"
+                android:paddingLeft="6dp"
+                android:paddingTop="10dp"
+                android:text="Выбрать момент"
+                android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+                android:textColor="@android:color/black"
+                android:textSize="18sp"
+                android:visibility="visible"/>
+
+            <RadioGroup
+                android:id="@+id/radiogroup"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:paddingBottom="10dp"
+                android:paddingLeft="6dp"
+                android:visibility="visible">
+
+                <RadioButton
+                    android:id="@+id/radio_after_sleep"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="После сна"
+                    android:textSize="14sp"
+                    android:visibility="visible"/>
+
+                <RadioButton
+                    android:id="@+id/radio_after_train"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="После тренировки"
+                    android:textSize="14sp"
+                    android:visibility="visible"/>
+
+            </RadioGroup>
+
+            <Button
+                android:id="@+id/note_date"
+                android:layout_width="162dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/ovalshape"
+                android:textAppearance="@style/TextAppearance.AppCompat"
+                android:textColor="@android:color/white"
+                android:textSize="18sp"
+                android:visibility="visible"/>
+
+            <EditText
+                android:id="@+id/rec"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="6dp"
+                android:ems="10"
+                android:hint="Заметки"
+                android:inputType="textPersonName"
+                android:paddingBottom="10dp"
+                android:paddingLeft="6dp"
+                android:paddingTop="10dp"
+                android:visibility="visible"/>
+
+            <Button
+                android:id="@+id/save"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/red_shape"
+                android:elevation="1dp"
+                android:text="Сохранить"
+                android:textAppearance="@style/TextAppearance.AppCompat"
+                android:textColor="@android:color/white"
+                android:textSize="18sp"
+                android:visibility="visible"/>
         </LinearLayout>
-
-        <TextView
-            android:id="@+id/textView16"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingBottom="10dp"
-            android:paddingLeft="6dp"
-            android:paddingTop="10dp"
-            android:text="Выбрать момент"
-            android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-            android:textColor="@android:color/black"
-            android:textSize="18sp"
-            android:visibility="gone"/>
-
-        <RadioGroup
-            android:id="@+id/radiogroup"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:paddingBottom="10dp"
-            android:paddingLeft="6dp"
-            android:visibility="gone">
-
-            <RadioButton
-                android:id="@+id/radio_after_sleep"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="После сна"
-                android:textSize="14sp"
-                android:visibility="visible"/>
-
-            <RadioButton
-                android:id="@+id/radio_after_train"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="После тренировки"
-                android:textSize="14sp"
-                android:visibility="visible"/>
-
-        </RadioGroup>
-
-        <Button
-            android:id="@+id/note_date"
-            android:layout_width="164dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginBottom="10dp"
-            android:layout_marginTop="10dp"
-            android:background="@drawable/ovalshape"
-            android:textAppearance="@style/TextAppearance.AppCompat"
-            android:textColor="@android:color/white"
-            android:textSize="18sp"
-            android:visibility="gone"/>
-
-        <EditText
-            android:id="@+id/rec"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="6dp"
-            android:ems="10"
-            android:hint="Заметки"
-            android:inputType="textPersonName"
-            android:paddingBottom="10dp"
-            android:paddingLeft="6dp"
-            android:paddingTop="10dp"
-            android:visibility="gone"/>
-
-        <Button
-            android:id="@+id/save"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/red_shape"
-            android:elevation="1dp"
-            android:text="Сохранить"
-            android:textAppearance="@style/TextAppearance.AppCompat"
-            android:textColor="@android:color/white"
-            android:textSize="18sp"
-            android:visibility="gone"/>
 
     </LinearLayout>
 </ScrollView>

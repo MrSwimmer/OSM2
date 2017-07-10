@@ -23,7 +23,9 @@
                 android:id="@+id/image"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_centerInParent="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
                 android:background="@android:color/white">
             </com.bignerdranch.android.osm.puls.PulsometroView><![CDATA[
 
@@ -42,10 +44,13 @@
                 android:id="@+id/text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
-                android:layout_centerVertical="true"
                 android:layout_gravity="center"
+                android:layout_marginBottom="5dp"
+                android:layout_marginLeft="9dp"
+                android:layout_marginStart="9dp"
                 android:text="@string/default_text"
                 android:textSize="35sp">
             </TextView>
@@ -54,23 +59,24 @@
                 android:id="@+id/textView24"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_above="@+id/text"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="5dp"
                 android:layout_weight="1"
                 android:text="Пульс"/>
 
             <Button
                 android:id="@+id/add_puls"
                 android:layout_width="140dp"
-                android:layout_height="wrap_content"
-                android:layout_alignParentEnd="true"
-                android:layout_alignParentRight="true"
-                android:layout_centerVertical="true"
+                android:layout_height="35dp"
                 android:background="@drawable/ovalshape"
                 android:text="Добавить этот пульс"
                 android:textColor="@android:color/white"
-                android:textSize="10sp"/>
+                android:textSize="10sp"
+                android:layout_centerVertical="true"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"/>
 
         </RelativeLayout>
     </LinearLayout>

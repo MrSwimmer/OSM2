@@ -1,6 +1,5 @@
 package com.bignerdranch.android.osm;
 
-
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -9,9 +8,9 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
+import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import com.bignerdranch.android.osm.database.ExportImportDB;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
@@ -35,6 +34,7 @@ public class NoteSettings extends AppCompatActivity {
     private String str = null;
     private TextView mVer;
     private AdView mAdView;
+    private Switch mRadioPuls;
 
     @Override
     public void onStart() {
@@ -50,9 +50,15 @@ public class NoteSettings extends AppCompatActivity {
         }
     }
 
+
+
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.settings_note);
+
+//        Intent serviceIntent = new Intent("com.android.vending.billing.InAppBillingService.BIND");
+//        serviceIntent.setPackage("com.android.vending");
+//        bindService(serviceIntent, serviceConnection, Context.BIND_AUTO_CREATE);
         mAuth = FirebaseAuth.getInstance();
         Email = (TextView) findViewById(R.id.email);
         mAuthListener = new FirebaseAuth.AuthStateListener() {
@@ -71,21 +77,6 @@ public class NoteSettings extends AppCompatActivity {
                 // ...
             }
         };
-//        mAuthListener = new FirebaseAuth.AuthStateListener() {
-//            @Override
-//            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
-//                FirebaseUser user = firebaseAuth.getCurrentUser();
-//                if (user != null) {
-//                    String email = user.getEmail();
-//                    Intent i = new Intent(LogInActivity.this, SucEnter.class);
-//                    i.putExtra("name", email);
-//                    startActivity(i);
-//                    // User is signed in
-//                } else {
-//                    // User is signed out
-//                }
-//                // ...
-//            }
 
 
         MobileAds.initialize(getApplicationContext(), "ca-app-pub-3781095842244998/9275756860");
@@ -128,6 +119,7 @@ public class NoteSettings extends AppCompatActivity {
                 startActivity(i);
             }
         });
+
     }
 
     @Override

@@ -63,6 +63,7 @@ public class NewNoteFragment extends Fragment {
     private TextView Zone;
     private TextView AboutZone;
     private RadioGroup mRadioGroup;
+    private LinearLayout MainBottom;
     private RadioButton mRadioButtonMorning;
     private RadioButton mRadioButtonTrain;
     private Chronometer mChronometer;
@@ -165,13 +166,9 @@ public class NewNoteFragment extends Fragment {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.menu_item_delete_crime:
-                /*FragmentManager manager = getFragmentManager();
-                NoteDeletePicker dialog = new NoteDeletePicker();
-                dialog.show(manager, DIALOG_DATE);*/
                 NoteLab.get(getActivity()).delNote(mNote);
                 getActivity().finish();
                 return true;
-            //case R.id.menu_item_sec:
             case R.id.menu_item_send_note:
                 Intent i = new Intent(Intent.ACTION_SEND);
                 i.setType("text/plain");
@@ -179,9 +176,6 @@ public class NewNoteFragment extends Fragment {
                 i.putExtra(Intent.EXTRA_SUBJECT, "Отправка результатов");
                 i = Intent.createChooser(i, "Отправить с помощью");
                 startActivity(i);
-//            case R.id.menu_item_sec:
-//                mSecVis=!mSecVis;
-
             default:
                 return super.onOptionsItemSelected(item);
         }
@@ -255,20 +249,6 @@ public class NewNoteFragment extends Fragment {
                 }
             }
         });
-//        mButtonStop = (Button) findViewById(R.id.buttonStop);
-//        mButtonStop.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                onStopClick();
-//            }
-//        });
-//        mButtonReset = (ImageView) v.findViewById(R.id.buttonStop);
-//        mButtonReset.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                onStopClick();
-//            }
-//        });
 
         mPsit.addTextChangedListener(new TextWatcher() {
             @Override
@@ -281,8 +261,6 @@ public class NewNoteFragment extends Fragment {
                 mNote.setPsit(s.toString());
 
             }
-
-
             @Override
             public void afterTextChanged(Editable s) {
 
@@ -293,7 +271,6 @@ public class NewNoteFragment extends Fragment {
         mPstand.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
             }
 
             @Override
@@ -302,7 +279,6 @@ public class NewNoteFragment extends Fragment {
                 mNote.setPstand(s.toString());
 
             }
-
             @Override
             public void afterTextChanged(Editable s) {
 
@@ -315,21 +291,17 @@ public class NewNoteFragment extends Fragment {
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
             }
-
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 mNote.setRec(s.toString());
 
             }
-
             @Override
             public void afterTextChanged(Editable s) {
 
             }
         });
-
         mButtonDate = (Button) v.findViewById(R.id.note_date);
-        //mButtonDate.setText(mNote.getDate().toString());
         mButtonDate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -341,8 +313,6 @@ public class NewNoteFragment extends Fragment {
                 dialog.show(manager, DIALOG_DATE);
             }
         });
-//        mViewDate = (TextView) v.findViewById(R.id.dateView);
-//        mViewDate.setText(mNote.getDateForm());
         mButtonDate.setText(mNote.getDateForm());
         mRadioButtonMorning = (RadioButton) v.findViewById(R.id.radio_after_sleep);
         mRadioButtonTrain = (RadioButton) v.findViewById(R.id.radio_after_train);
@@ -357,83 +327,75 @@ public class NewNoteFragment extends Fragment {
         });
         mZoneBallView = (ImageView) v.findViewById(R.id.resview);
         mButton = (Button) v.findViewById(R.id.button);
-        mText16 = (TextView) v.findViewById(R.id.textView16);
         mResView = (TextView) v.findViewById(R.id.restext);
         mRadioGroup = (RadioGroup) v.findViewById(R.id.radiogroup);
         InfoZone = (LinearLayout) v.findViewById(R.id.infozone);
         Zone = (TextView) v.findViewById(R.id.textZone);
         mScrollView = (ScrollView) v.findViewById(R.id.scroll);
+        MainBottom = (LinearLayout) v.findViewById(R.id.main_bottom);
         mSaveAll = (Button) v.findViewById(R.id.save);
         AboutZone = (TextView) v.findViewById(R.id.textLetZone);
-
-        if ((mNote.getPsit() != null && mNote.getPstand() != null)) {
-            mZoneBallView.setVisibility(View.VISIBLE);
+        mScrollView.animate();
+        if (mNote.getPsit()!=null&&mNote.getPstand()!=null) {
+            MainBottom.setVisibility(View.VISIBLE);
             secondCircularImageBar(mZoneBallView, mNote.getZone(), mNote.getPoint());
-            mButtonDate.setVisibility(View.VISIBLE);
-            mText16.setVisibility(View.VISIBLE);
-            mRadioGroup.setVisibility(View.VISIBLE);
-            mButtonDate.setVisibility(View.VISIBLE);
-            mRec.setVisibility(View.VISIBLE);
-            InfoZone.setVisibility(View.VISIBLE);
-            mResView.setVisibility(View.VISIBLE);
-            mSaveAll.setVisibility(View.VISIBLE);
-            mScrollView.scrollTo((int) mZoneBallView.getX(), (int) mZoneBallView.getY() - 100);
+            //mScrollView.scrollTo((int) mSaveAll.getX(), (int) mSaveAll.getY());
+            mScrollView.scrollTo(0, (int) mRadioGroup.getY());
             switch (mNote.getZone()) {
                 case 1:
                     Zone.setText(R.string.zone_1t);
+                    InfoZone.setBackgroundColor(getResources().getColor(R.color.green));
                     AboutZone.setText(R.string.zone_1);
                     break;
                 case 2:
                     Zone.setText(R.string.zone_2t);
                     AboutZone.setText(R.string.zone_2);
+                    InfoZone.setBackgroundColor(getResources().getColor(R.color.blue));
                     break;
                 case 3:
                     Zone.setText(R.string.zone_3t);
                     AboutZone.setText(R.string.zone_3);
+                    InfoZone.setBackgroundColor(getResources().getColor(R.color.yellow));
                     break;
                 case 4:
                     Zone.setText(R.string.zone_4t);
                     AboutZone.setText(R.string.zone_4);
+                    InfoZone.setBackgroundColor(getResources().getColor(R.color.red));
                     break;
             }
-            mScrollView.scrollTo((int) mZoneBallView.getX(), (int) mZoneBallView.getY() - 100);
         }
         mButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (mNote.getPsit() != null && mNote.getPstand() != null) {
-//                    mPointsView.setText(mNote.getPoint());
-//                    mZoneView.setText(Integer.toString(mNote.getZone()));
-                    mZoneBallView.setVisibility(View.VISIBLE);
+                    MainBottom.setVisibility(View.VISIBLE);
                     secondCircularImageBar(mZoneBallView, mNote.getZone(), mNote.getPoint());
-                    mButtonDate.setVisibility(View.VISIBLE);
-                    mText16.setVisibility(View.VISIBLE);
-                    mRadioGroup.setVisibility(View.VISIBLE);
-                    mButtonDate.setVisibility(View.VISIBLE);
-                    mRec.setVisibility(View.VISIBLE);
-                    InfoZone.setVisibility(View.VISIBLE);
-                    mResView.setVisibility(View.VISIBLE);
-                    mSaveAll.setVisibility(View.VISIBLE);
-                    mScrollView.scrollTo((int) mZoneBallView.getX(), (int) mZoneBallView.getY() - 100);
+                    //mScrollView.scrollTo(0, 3000);
+                    //mScrollView.scrollTo((int) mSaveAll.getX(), (int) mSaveAll.getY());
+                    mScrollView.scrollTo((int) mZoneBallView.getX(), (int) mRadioGroup.getY());
                     switch (mNote.getZone()) {
                         case 1:
                             Zone.setText(R.string.zone_1t);
                             AboutZone.setText(R.string.zone_1);
+                            InfoZone.setBackgroundColor(getResources().getColor(R.color.green));
                             break;
                         case 2:
                             Zone.setText(R.string.zone_2t);
                             AboutZone.setText(R.string.zone_2);
+                            InfoZone.setBackgroundColor(getResources().getColor(R.color.blue));
                             break;
                         case 3:
                             Zone.setText(R.string.zone_3t);
                             AboutZone.setText(R.string.zone_3);
+                            InfoZone.setBackgroundColor(getResources().getColor(R.color.yellow));
                             break;
                         case 4:
                             Zone.setText(R.string.zone_4t);
                             AboutZone.setText(R.string.zone_4);
+                            InfoZone.setBackgroundColor(getResources().getColor(R.color.red));
                             break;
                     }
-                    mScrollView.scrollTo((int) mZoneBallView.getX(), (int) mZoneBallView.getY() - 100);
+
                 }
             }
         });
@@ -443,18 +405,6 @@ public class NewNoteFragment extends Fragment {
                 getActivity().finish();
             }
         });
-//        mZoneView = (TextView) v.findViewById(R.id.ZoneView);
-//        mPointsView = (TextView) v.findViewById(R.id.PointsView);
-
-        if (mNote.getPsit() != null && mNote.getPstand() != null) {
-            mScrollView.scrollTo((int) mZoneBallView.getX(), (int) mZoneBallView.getY());
-            secondCircularImageBar(mZoneBallView, mNote.getZone(), mNote.getPoint());
-//            mPointsView.setText(mNote.getPoint());
-//            mZoneView.setText(Integer.toString(mNote.getZone()));
-
-        }
-
-        //mRadioButtonTrain = (RadioButton) v.findViewById(R.id.radio_after_train);
         return v;
     }
 
@@ -467,8 +417,6 @@ public class NewNoteFragment extends Fragment {
             Date date = (Date) data
                     .getSerializableExtra(DatePickerFragment.EXTRA_DATE);
             mNote.setDate(date);
-            //mButtonDate.setText(mNote.getDate().toString());
-            //mViewDate.setText(mNote.getDateForm());
         }
     }
 
@@ -483,7 +431,6 @@ public class NewNoteFragment extends Fragment {
                 mPsit.setText(Pulsometro.text.substring(0, buf));
                 mPstand.setText(Pulsometro.text.substring(buf + 1, Pulsometro.text.length()));
                 Pulsometro.text="";
-
             }
         }
     @Override
