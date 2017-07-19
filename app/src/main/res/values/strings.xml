@@ -73,4 +73,9 @@
         <!--<item>Динамика зоны(после тренировки)</item>-->
         <!--<item>Динамика балла(посл тренировки)</item>-->
     </string-array>
+    <string name="textforon">Функция SmartScore позволяет делать оценку состояния более качественно</string>
+    <string name="textbuttonforon">Включить</string>
+    <string name="textforoff">Функция SmartScore позволяет делать оценку состояния более качественно.\nЕсли вы отключите функцию, то весь прогресс совершенствования системы будет утерян!</string>
+    <string name="textbuttonforoff">Отключить</string>
+
 </resources>

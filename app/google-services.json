@@ -10,7 +10,7 @@
       "client_info": {
         "mobilesdk_app_id": "1:187402771119:android:0db8e70981e3fb28",
         "android_client_info": {
-          "package_name": "com.bignerdranch.android.osm"
+          "package_name": "com.bignerdranch.android.osmpro"
         }
       },
       "oauth_client": [
@@ -18,7 +18,7 @@
           "client_id": "187402771119-p6p0jligem0es6onnqgi07c71sqj983g.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "com.bignerdranch.android.osm",
+            "package_name": "com.bignerdranch.android.osmpro",
             "certificate_hash": "70522e94947bd5ffa67c11b1c811439826fbe45e"
           }
         },
@@ -26,7 +26,7 @@
           "client_id": "187402771119-vvmbc8u3pl475ofrbl8d46i3kvoi3kjd.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "com.bignerdranch.android.osm",
+            "package_name": "com.bignerdranch.android.osmpro",
             "certificate_hash": "831b6a4eed7c2f068c95e51523215734f7b50a85"
           }
         },

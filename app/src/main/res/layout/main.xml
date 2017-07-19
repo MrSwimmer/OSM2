@@ -19,7 +19,7 @@
             android:layout_height="fill_parent"
             android:orientation="horizontal">
 
-            <com.bignerdranch.android.osm.puls.PulsometroView
+            <pro.bignerdranch.android.osmpro.puls.PulsometroView
                 android:id="@+id/image"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -27,7 +27,7 @@
                 android:layout_alignParentStart="true"
                 android:layout_centerVertical="true"
                 android:background="@android:color/white">
-            </com.bignerdranch.android.osm.puls.PulsometroView><![CDATA[
+            </pro.bignerdranch.android.osmpro.puls.PulsometroView><![CDATA[
 
             Chronometer
                 android:id="@+id/chrono_puls"
