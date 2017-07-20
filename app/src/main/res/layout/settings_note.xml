@@ -62,7 +62,7 @@
                 android:id="@+id/textView3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="v2.1.pro"
+                android:text="v2.2.pro"
                 android:textSize="17sp"/>
 
         </LinearLayout>
@@ -88,7 +88,7 @@
             android:background="@drawable/bottom_line"
             android:padding="15dp"
             android:splitTrack="false"
-            android:text="SmartPoint"
+            android:text="SmartScore"
             android:textSize="18sp"
             tools:checked="true"/>
 

@@ -423,7 +423,7 @@ public class NewNoteFragment extends Fragment {
                 }
             }
         });
-        final String[] mChooseVar = { "Балл точен", "Балл меньше на 1", "Балл меньше на 2", "Балл больше на 1", "Балл больше на 2" };
+        final String[] mChooseVar = { "Балл точен", "Балл меньше на <1", "Балл меньше на <2", "Балл больше на <1", "Балл больше на <2" };
         mSaveAll.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -442,33 +442,33 @@ public class NewNoteFragment extends Fragment {
                                                     getActivity().finish();
                                                     break;
                                                 case 1:
-                                                    Note.x+=0.01;
-                                                    Note.y-=0.01;
-                                                    dialog.cancel();
-                                                    getActivity().finish();
-                                                    break;
-                                                case 2:
                                                     Note.x+=0.02;
                                                     Note.y-=0.02;
                                                     dialog.cancel();
                                                     getActivity().finish();
                                                     break;
+                                                case 2:
+                                                    Note.x+=0.04;
+                                                    Note.y-=0.04;
+                                                    dialog.cancel();
+                                                    getActivity().finish();
+                                                    break;
                                                 case 3:
-                                                    Note.x-=0.01;
-                                                    Note.y+=0.01;
+                                                    Note.x-=0.02;
+                                                    Note.y+=0.02;
                                                     dialog.cancel();
                                                     getActivity().finish();
                                                     break;
                                                 case 4:
-                                                    Note.x-=0.02;
-                                                    Note.y+=0.02;
+                                                    Note.x-=0.04;
+                                                    Note.y+=0.04;
                                                     dialog.cancel();
                                                     getActivity().finish();
                                                     break;
                                             }
                                             Neuro=true;
                                             Log.i("XY", Note.x+" "+Note.y);
-                                            Toast.makeText(getActivity(), "Спасибо", Toast.LENGTH_SHORT);
+                                            Toast.makeText(getActivity(),"Спасибо", Toast.LENGTH_SHORT).show();
                                         }
                                     });
 

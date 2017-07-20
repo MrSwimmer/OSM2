@@ -176,7 +176,8 @@ public class NoteSettings extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 AlertDialog.Builder builder = new AlertDialog.Builder(NoteSettings.this);
-                builder.setTitle("О версии").setMessage("Что нового в этой версии?\nПофикшены баги (но не все), улучшен интерфейс, добавлена функция измерения пульса с помощью камеры и вспышки.\nЧто ожидать в следующих версиях?\nВнедрение искусственной нейронной сети для более качественной оценки состояния организма").setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                builder.setTitle("О версии").setMessage("Что нового в этой версии?\nСделали красиво, добавлена функция SmartScore - обучающаяся нейросеть, которая позволяет давать оценку состоянию организма более качественно.\n" +
+                        "Что ожидать в следующих версиях?\nFull bugfix").setPositiveButton("OK", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         dialog.cancel();
