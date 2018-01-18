@@ -71,19 +71,7 @@ public class SucEnter extends AppCompatActivity {
         R1 = (RadioButton) findViewById(R.id.r1);
         R2 = (RadioButton) findViewById(R.id.radioSwap2);
         R3 = (RadioButton) findViewById(R.id.radioSwap3);
-//        mAuthListener = new FirebaseAuth.AuthStateListener() {
-//            @Override
-//        public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
-//             user = firebaseAuth.getCurrentUser();
-//            if (user.isEmailVerified() ) {
-//                Toast.makeText(SucEnter.this, "Аккаунт подтвержден!" ,  Toast.LENGTH_SHORT).show();
-//            } else {
-//                Toast.makeText(SucEnter.this, "Подтвердите аккаунт!" ,  Toast.LENGTH_SHORT).show();
-//                Intent i = new Intent(SucEnter.this, MainActivity.class);
-//                startActivity(i);
-//            }
-//        }
-//    };
+
         mButton = (Button) findViewById(R.id.NextBut);
         mButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -165,9 +153,6 @@ public class SucEnter extends AppCompatActivity {
                     @Override
                     public void onSuccess(FileDownloadTask.TaskSnapshot taskSnapshot) {
                         // Successfully downloaded data to local file
-//                        Intent i = new Intent(SucEnter.this, ExportImportDB.class);
-//                        i.putExtra("op", "imp");
-//                        startActivity(i);
                         Toast.makeText(SucEnter.this, "Скачивание завершено!", Toast.LENGTH_SHORT).show();
                         // ...
                     }

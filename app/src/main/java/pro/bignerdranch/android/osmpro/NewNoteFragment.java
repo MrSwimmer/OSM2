@@ -5,6 +5,7 @@ import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Color;
@@ -86,6 +87,8 @@ public class NewNoteFragment extends Fragment {
     private Boolean actVib = false;
     private Button scanPuls;
     private ImageView Arrow;
+    public static final String APP_PREFERENCES = "mysettings";
+    private SharedPreferences mSettings;
     AlertDialog.Builder ad;
     Context context;
     public static NewNoteFragment newInstance(UUID noteId) {
@@ -166,6 +169,7 @@ public class NewNoteFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         UUID noteId = (UUID) getArguments().getSerializable(ARG_NOTE_ID);
+        mSettings = getActivity().getSharedPreferences(APP_PREFERENCES, Context.MODE_PRIVATE);
         mNote = NoteLab.get(getActivity()).getNote(noteId);
         setHasOptionsMenu(true);
     }
@@ -428,6 +432,7 @@ public class NewNoteFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 if(NoteSettings.SmartScore){
+
                     AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
                     builder.setTitle("Оценка точности")
                             .setCancelable(false)
@@ -444,6 +449,7 @@ public class NewNoteFragment extends Fragment {
                                                 case 1:
                                                     Note.x+=0.02;
                                                     Note.y-=0.02;
+
                                                     dialog.cancel();
                                                     getActivity().finish();
                                                     break;
@@ -466,6 +472,10 @@ public class NewNoteFragment extends Fragment {
                                                     getActivity().finish();
                                                     break;
                                             }
+                                            final SharedPreferences.Editor editor = mSettings.edit();
+                                            editor.putFloat("x", (float) Note.x);
+                                            editor.putFloat("y", (float) Note.y);
+                                            editor.apply();
                                             Neuro=true;
                                             Log.i("XY", Note.x+" "+Note.y);
                                             Toast.makeText(getActivity(),"Спасибо", Toast.LENGTH_SHORT).show();

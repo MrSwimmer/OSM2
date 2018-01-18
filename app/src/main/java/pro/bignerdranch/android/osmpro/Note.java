@@ -20,7 +20,7 @@ public class Note {
     private int mZone;
     private RadioGroup mRadioGroup;
     private boolean mRad;
-    static public double x=2.27, y=0.5;
+    public static double x=2.27, y=0.5;
     public Note() {
         this(UUID.randomUUID());
     }

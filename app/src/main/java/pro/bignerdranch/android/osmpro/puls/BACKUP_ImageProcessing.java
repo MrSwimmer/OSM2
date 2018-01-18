@@ -23,16 +23,6 @@ public abstract class BACKUP_ImageProcessing {
                 RGB['r'] = ((1192 * y) + 1634 * v);
                 RGB['g'] = ((1192 * y) - 833 * v - 400 * u);
                 RGB['b'] = ((1192 * y) + 2066 * u);
-                /*
-                for(int rgbs=0;i<3;i++){
-                	if (RGB[rgbs] < min){
-                    	RGB[rgbs] = min;
-                    }
-                    else if (RGB[rgbs] > max){
-                    	RGB[rgbs] = max;
-                    }
-                }
-               */
                 if (RGB['r'] < min) {
                     RGB['r'] = min;
                 } else if (RGB['r'] > max) {

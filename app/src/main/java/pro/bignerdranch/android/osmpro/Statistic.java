@@ -151,39 +151,18 @@ public class Statistic extends AppCompatActivity {
         final String x;
         if (title == "zone") {
             for (int i = 0; i < mNotes.size(); i++) {
-//                if(moment){
-//                    if(mNotes.get(i).isRad()){
                 dataPoint[i] = new DataPoint(mNotes.get(i).getDate(), mNotes.get(i).getZone());
                 if (i == 0)
                     midball = mNotes.get(i).Points();
                 else
                     midball += mNotes.get(i).Points() / (i + 1);
-//                        countPoints++;
-//                    }
-//                }
-                //mString+=mNotes.get(i).isRad();
-//                else {
-//                    if(!mNotes.get(i).isRad()){
-//                        dataPoint[i] =new DataPoint(mNotes.get(i).getDate(), mNotes.get(i).getZone());
-//                    }
-//                }
-                //dataPoint[i] =new DataPoint(mNotes.get(i).getDate(), mNotes.get(i).getZone());
             }
             x = "Зона: ";
         } else {
             for (int i = 0; i < mNotes.size(); i++) {
-//                if(moment){
-//                    if(mNotes.get(i).isRad()){
+
                 dataPoint[i] = new DataPoint(mNotes.get(i).getDate(), mNotes.get(i).Points());
-//                    }
-//                }
-                //mString+=mNotes.get(i).isRad();
-//                else {
-//                    if(!mNotes.get(i).isRad()){
-//                        dataPoint[i] =new DataPoint(mNotes.get(i).getDate(), mNotes.get(i).Points());
-//                    }
-//                }
-                //dataPoint[i] =new DataPoint(mNotes.get(i).getDate(), mNotes.get(i).getZone());
+
             }
 
             x = "Балл: ";
@@ -208,10 +187,6 @@ public class Statistic extends AppCompatActivity {
         });
         graph.getGridLabelRenderer().setLabelFormatter(new DateAsXAxisLabelFormatter(this));
         graph.getGridLabelRenderer().setNumHorizontalLabels(3); // only 4 because of the space
-
-//        graph.getViewport().setMinY(1);
-//        graph.getViewport().setMaxY(4);
-
         graph.getViewport().setXAxisBoundsManual(true);
 
         graph.getGridLabelRenderer().setHumanRounding(false);

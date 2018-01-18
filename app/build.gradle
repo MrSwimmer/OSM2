@@ -15,8 +15,8 @@ android {
         applicationId "com.bignerdranch.android.osmpro"
         minSdkVersion 16
         targetSdkVersion 25
-        versionCode 10
-        versionName "2.2.pro"
+        versionCode 11
+        versionName "2.3.pro"
         multiDexEnabled true
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }

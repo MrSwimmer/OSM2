@@ -1,8 +1,10 @@
 package pro.bignerdranch.android.osmpro;
 
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -23,6 +25,8 @@ import com.google.android.gms.ads.MobileAds;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
+import static pro.bignerdranch.android.osmpro.Note.y;
+
 /**
  * Created by Севастьян on 08.03.2017.
  */
@@ -41,6 +45,8 @@ public class NoteSettings extends AppCompatActivity {
     private AdView mAdView;
     public static boolean SmartScore=true;
     private Switch mSwitch;
+    public static final String APP_PREFERENCES = "mysettings";
+    private SharedPreferences mSettings;
     @Override
     public void onStart() {
         super.onStart();
@@ -57,6 +63,8 @@ public class NoteSettings extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.settings_note);
+        mSettings = getSharedPreferences(APP_PREFERENCES, Context.MODE_PRIVATE);
+        Log.i("code", SmartScore + "");
         mSwitch = (Switch) findViewById(R.id.switch1);
         if(SmartScore){
             mSwitch.setChecked(true);
@@ -86,6 +94,9 @@ public class NoteSettings extends AppCompatActivity {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
                                 SmartScore=!SmartScore;
+                                SharedPreferences.Editor editor = mSettings.edit();
+                                editor.putBoolean("smarts", SmartScore);
+                                editor.apply();
                                 dialog.cancel();
                             }
                         })
@@ -176,8 +187,7 @@ public class NoteSettings extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 AlertDialog.Builder builder = new AlertDialog.Builder(NoteSettings.this);
-                builder.setTitle("О версии").setMessage("Что нового в этой версии?\nСделали красиво, добавлена функция SmartScore - обучающаяся нейросеть, которая позволяет давать оценку состоянию организма более качественно.\n" +
-                        "Что ожидать в следующих версиях?\nFull bugfix").setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                builder.setTitle("О версии").setMessage("Исправлены ошибки").setPositiveButton("OK", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         dialog.cancel();

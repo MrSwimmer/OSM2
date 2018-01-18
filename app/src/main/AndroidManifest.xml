@@ -18,6 +18,7 @@
         android:backupAgent="pro.bignerdranch.android.osmpro.TheBackupAgent"
         android:icon="@drawable/newicon"
         android:label="@string/app_name"
+        android:name="pro.bignerdranch.android.osmpro.MyApplication"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <meta-data

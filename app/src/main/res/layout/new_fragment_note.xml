@@ -234,8 +234,8 @@
 
         <ImageView
             android:id="@+id/arrow"
-            android:layout_width="77dp"
-            android:layout_height="47dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:visibility="invisible"
             app:srcCompat="@drawable/arrow"/>
